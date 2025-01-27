@@ -1,0 +1,17 @@
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore EF Core migrations history (optional)
+Migrations/
+
+# Ignore node_modules for frontend projects
+frontend/node_modules/
+
+# Ignore log files
+*.log
