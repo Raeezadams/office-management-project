@@ -7,7 +7,7 @@
 bin/
 obj/
 
-# Ignore EF Core migrations history (optional)
+# Ignore EF Core migrations history
 Migrations/
 
 # Ignore node_modules for frontend projects
