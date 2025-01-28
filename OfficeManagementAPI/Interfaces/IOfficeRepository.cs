@@ -7,5 +7,6 @@ namespace OfficeManagementAPI.Interfaces
     {
         Task<List<Office>> GetAllAsync();
         Task<Office?> GetOfficeByIdAsync(int id);  
+        Task<Office> AddOfficeAsync(Office office); 
     }
 }

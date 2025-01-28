@@ -1,4 +1,4 @@
-﻿namespace OfficeManagementAPI.DTOs
+﻿namespace OfficeManagementAPI.DTOs.EmployeeDtos
 {
     public class EmployeeDto
     {

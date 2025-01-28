@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OfficeManagementAPI.DTOs;
+using OfficeManagementAPI.DTOs.Office;
 using OfficeManagementAPI.Interfaces;
 using OfficeManagementAPI.Mappers;
 using OfficeManagementAPI.Repositories;
@@ -17,7 +18,7 @@ namespace OfficeManagementAPI.Controllers
             _officerepo = officerepo;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllOffices")]
         public async Task<IActionResult> GetAllOffices()
         {
             var offices = await _officerepo.GetAllAsync();
@@ -40,5 +41,20 @@ namespace OfficeManagementAPI.Controllers
             var officeDto = office.ToOfficeDto();
             return Ok(officeDto);
         }
+
+        [HttpPost("CreateOffice")]
+        public async Task<IActionResult> CreateOffice([FromBody] CreateOfficeDto officeDto )
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var office = officeDto.ToOfficeFromCreateDto();
+            var createdOffice = await _officerepo.AddOfficeAsync(office);
+
+            return CreatedAtAction(nameof(GetOfficeById), new { id = createdOffice.Id }, createdOffice.ToOfficeDto());
+        }
+
     }
 }

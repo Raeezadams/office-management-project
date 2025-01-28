@@ -1,4 +1,4 @@
-﻿using OfficeManagementAPI.DTOs;
+﻿using OfficeManagementAPI.DTOs.EmployeeDtos;
 using OfficeManagementAPI.Models;
 
 namespace OfficeManagementAPI.Mappers

@@ -14,6 +14,13 @@ namespace OfficeManagementAPI.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<Office> AddOfficeAsync(Office office)
+        {
+            await _dbContext.AddAsync(office);
+            await _dbContext.SaveChangesAsync();
+            return office;
+        }
+
         public async Task<List<Office>> GetAllAsync()
         {
             return await _dbContext.Offices.Include(o => o.Employees).ToListAsync();

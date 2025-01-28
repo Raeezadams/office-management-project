@@ -1,4 +1,5 @@
-﻿using OfficeManagementAPI.DTOs;
+﻿using OfficeManagementAPI.DTOs.Office;
+using OfficeManagementAPI.DTOs.OfficeDto;
 using OfficeManagementAPI.Models;
 
 namespace OfficeManagementAPI.Mappers
@@ -17,6 +18,20 @@ namespace OfficeManagementAPI.Mappers
                 MaxCapacity = office.MaxCapacity,
                 Color = office.Color,
                 Employees = office.Employees?.Select(x => x.ToEmployeeDto()).ToList()
+            };
+        }
+
+        public static Office ToOfficeFromCreateDto (this CreateOfficeDto officeDto)
+        {
+            return new Office
+            {
+                Name = officeDto.Name,
+                Address = officeDto.Address,
+                Email = officeDto.Email,
+                Phone = officeDto.Phone,
+                MaxCapacity = officeDto.MaxCapacity,
+                Color = officeDto.Color
+
             };
         }
     }
