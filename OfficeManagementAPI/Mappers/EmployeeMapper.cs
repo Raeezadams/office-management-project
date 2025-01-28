@@ -1,4 +1,5 @@
-﻿using OfficeManagementAPI.DTOs.EmployeeDtos;
+﻿using OfficeManagementAPI.DTOs.Employee;
+using OfficeManagementAPI.DTOs.EmployeeDtos;
 using OfficeManagementAPI.Models;
 
 namespace OfficeManagementAPI.Mappers
@@ -12,6 +13,16 @@ namespace OfficeManagementAPI.Mappers
                 Id = employee.Id,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName
+            };
+        }
+
+        public static Employee ToEmployeeFromCreateDto(this CreateEmployeeDto employeeDto)
+        {
+            return new Employee
+            {
+                FirstName = employeeDto.FirstName,
+                LastName = employeeDto.LastName,
+                OfficeId = employeeDto.OfficeId,
             };
         }
     }

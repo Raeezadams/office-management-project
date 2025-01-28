@@ -1,11 +1,9 @@
-﻿namespace OfficeManagementAPI.DTOs.EmployeeDtos
+﻿namespace OfficeManagementAPI.DTOs.Employee
 {
-    public class EmployeeDto
+    public class CreateEmployeeDto
     {
-        public int Id { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-
+        public int OfficeId { get; set; }
     }
-
 }
