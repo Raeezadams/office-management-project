@@ -8,5 +8,6 @@ namespace OfficeManagementAPI.Interfaces
         Task<Employee> AddEmployeeAsync(Employee employee);
         Task<Employee?> GetEmployeeByIdAsync(int id);
         Task<Employee?> UpdateEmployeeAsync(int id, UpdateEmployeeDto updateEmployeeDto);
+        Task<Employee?> DeleteEmployeeByIdAsync(int id);
     }
 }

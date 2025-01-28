@@ -64,5 +64,26 @@ namespace OfficeManagementAPI.Controllers
 
             return Ok(updatedEmployee.ToEmployeeDto());
         }
+
+        [HttpDelete]
+        [Route("DeleteEmployee/{id:int}")]
+        public async Task<IActionResult> DeleteEmployee([FromRoute]int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var employee = await _empolyeeRepo.DeleteEmployeeByIdAsync(id);
+
+            if(employee == null)
+            {
+                return NotFound("Employee does not exsist");
+            }
+
+            return Ok("Removed employee");
+
+        }
+
     }
 }

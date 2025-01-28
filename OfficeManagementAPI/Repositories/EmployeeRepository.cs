@@ -22,6 +22,21 @@ namespace OfficeManagementAPI.Repositories
             return employee;
         }
 
+        public async Task<Employee?> DeleteEmployeeByIdAsync(int id)
+        {
+            var exsitingEmployee = await _dbContext.Employees.FirstOrDefaultAsync( x => x.Id == id );
+
+            if ( exsitingEmployee == null)
+            {
+                return null;
+            }
+
+            _dbContext.Employees.Remove(exsitingEmployee );
+            await _dbContext.SaveChangesAsync();
+
+            return exsitingEmployee;
+        }
+
         public async Task<Employee?> GetEmployeeByIdAsync(int id)
         {
             return await _dbContext.Employees.Include(x => x.Office).FirstOrDefaultAsync( x => x.Id == id );
