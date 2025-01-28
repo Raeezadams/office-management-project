@@ -11,7 +11,11 @@ namespace OfficeManagementAPI.Mappers
             {
                 Id = office.Id,
                 Name = office.Name,
-                Location = office.Color,
+                Address = office.Address,
+                Phone = office.Phone,
+                Email = office.Email,
+                MaxCapacity = office.MaxCapacity,
+                Color = office.Color,
                 Employees = office.Employees?.Select(x => x.ToEmployeeDto()).ToList()
             };
         }

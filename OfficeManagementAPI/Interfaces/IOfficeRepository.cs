@@ -5,6 +5,7 @@ namespace OfficeManagementAPI.Interfaces
 {
     public interface IOfficeRepository
     {
-        Task<IEnumerable<Office>> GetAllOfficesAsync();
+        Task<List<Office>> GetAllAsync();
+        Task<Office?> GetOfficeByIdAsync(int id);  
     }
 }
