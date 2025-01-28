@@ -25,5 +25,13 @@ namespace OfficeManagementAPI.Mappers
                 OfficeId = employeeDto.OfficeId,
             };
         }
+
+        public static void UpdateEmployeeFromDto (this Employee employee, UpdateEmployeeDto updatEemployeeDto)
+        {
+            {
+                employee.FirstName = updatEemployeeDto.FirstName;
+                employee.LastName = updatEemployeeDto.LastName;
+            };
+        }
     }
 }

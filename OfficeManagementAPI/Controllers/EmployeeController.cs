@@ -45,5 +45,24 @@ namespace OfficeManagementAPI.Controllers
 
             return Ok(employee.ToEmployeeDto());
         }
+
+        [HttpPut]
+        [Route("UpdateEmployee/{id:int}")]
+        public async Task<IActionResult> UpdateEmployee(int id, [FromBody] UpdateEmployeeDto updateEmployeeDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var updatedEmployee = await _empolyeeRepo.UpdateEmployeeAsync(id, updateEmployeeDto);
+
+            if (updatedEmployee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            return Ok(updatedEmployee.ToEmployeeDto());
+        }
     }
 }

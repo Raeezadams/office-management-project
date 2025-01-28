@@ -1,4 +1,5 @@
-﻿using OfficeManagementAPI.Models;
+﻿using OfficeManagementAPI.DTOs.Employee;
+using OfficeManagementAPI.Models;
 
 namespace OfficeManagementAPI.Interfaces
 {
@@ -6,5 +7,6 @@ namespace OfficeManagementAPI.Interfaces
     {
         Task<Employee> AddEmployeeAsync(Employee employee);
         Task<Employee?> GetEmployeeByIdAsync(int id);
+        Task<Employee?> UpdateEmployeeAsync(int id, UpdateEmployeeDto updateEmployeeDto);
     }
 }
