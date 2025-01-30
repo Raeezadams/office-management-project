@@ -5,6 +5,7 @@ namespace OfficeManagementAPI.Interfaces
 {
     public interface IEmpolyeeRepository
     {
+        Task<List<Employee>> GetEmployeeByOfficeIdAsync(int officeId);
         Task<Employee> AddEmployeeAsync(Employee employee);
         Task<Employee?> GetEmployeeByIdAsync(int id);
         Task<Employee?> UpdateEmployeeAsync(int id, UpdateEmployeeDto updateEmployeeDto);

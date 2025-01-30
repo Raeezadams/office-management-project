@@ -42,6 +42,11 @@ namespace OfficeManagementAPI.Repositories
             return await _dbContext.Employees.Include(x => x.Office).FirstOrDefaultAsync( x => x.Id == id );
         }
 
+        public async Task<List<Employee>> GetEmployeeByOfficeIdAsync(int officeId)
+        {
+            return await _dbContext.Employees.Where(x => x.OfficeId == officeId).ToListAsync();
+        }
+
         public async Task<Employee?> UpdateEmployeeAsync(int id, UpdateEmployeeDto updateEmployeeDto)
         {
             var exsistingEmployee = await _dbContext.Employees.FindAsync(id);

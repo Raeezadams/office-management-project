@@ -85,5 +85,22 @@ namespace OfficeManagementAPI.Controllers
 
         }
 
+        [HttpGet]
+        [Route("GetEmployeesByOffice/{officeId:int}")]
+        public async Task<IActionResult> GetEmployeesByOfficeId([FromRoute]int officeId)
+        {
+            var employees = await _empolyeeRepo.GetEmployeeByOfficeIdAsync(officeId);
+
+            if (employees == null || !employees.Any())
+            {
+                return NotFound($"No employees found for Office ID {officeId}");
+            }
+
+            var employeeDto = employees.Select( x => x.ToEmployeeDto() );
+
+            return Ok(employeeDto);
+
+        }
+
     }
 }
