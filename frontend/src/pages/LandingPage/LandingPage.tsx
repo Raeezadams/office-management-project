@@ -10,7 +10,7 @@ interface Office {
   color: string;
   phone?: string;
   email?: string;
-  capacity?: number;
+  maxCapacity?: number;
   address?: string;
 }
 
@@ -22,9 +22,13 @@ const LandingPage: React.FC = () => {
     const getOffices = async () => {
       try {
         const officeData = await fetchOffices();
-        setOffices(officeData);
+        console.log("Fetched Data:", officeData); // Debugging
+  
+        // Ensure officeData is an array, fallback to empty array if not
+        setOffices(Array.isArray(officeData) ? officeData : []);
       } catch (error) {
         console.error('Failed to fetch offices:', error);
+        setOffices([]); // Prevent `map` errors by setting an empty array
       } finally {
         setLoading(false);
       }
@@ -40,7 +44,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="landing-page">
       <h1 className="heading">All Offices</h1>
-      <div>
+      <div className='office-list'>
         {offices.map((office) => (
           <OfficeCard
             key={office.id}
@@ -49,7 +53,7 @@ const LandingPage: React.FC = () => {
             color={office.color || '#1D4ED8'}
             phone={office.phone}
             email={office.email}
-            capacity={office.capacity}
+            maxCapacity={office.maxCapacity}
             address={office.address}
           />
         ))}

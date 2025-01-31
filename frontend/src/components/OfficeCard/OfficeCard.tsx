@@ -8,7 +8,7 @@ interface OfficeCardProps {
   address?: string;
   email?: string;
   phone?: string;
-  capacity?: number;
+  maxCapacity?: number;
 }
 
 const OfficeCard: React.FC<OfficeCardProps> = ({
@@ -18,7 +18,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
   address,
   email,
   phone,
-  capacity,
+  maxCapacity,
 }) => {
   const [showInfo, setShowInfo] = useState(false);
 
@@ -27,20 +27,23 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
       <div className="office-card-header">
         <div>
           <h2 className="office-name">{name}</h2>
-          <p className="office-staff">{staffCount} Staff Members in Office</p>
+          <p className="office-staff">👥 {staffCount} Staff Members in Office</p>
         </div>
-        <button
-          className="toggle-info-btn"
-          onClick={() => setShowInfo(!showInfo)}
-        >
-          {showInfo ? '▲' : 'More info▼'}
-        </button>
+        <button className="edit-btn">✏️</button>
       </div>
+      {/* Horizontal Line */}
+      <hr className="divider" />
+      <button
+        className="toggle-info-btn"
+        onClick={() => setShowInfo(!showInfo)}
+      >
+        {showInfo ? '▲ Hide info' : 'More info ▼'}
+      </button>
       {showInfo && (
         <div className="office-card-details">
           <p>📞 {phone}</p>
           <p>📧 {email}</p>
-          <p>👥 Office Capacity: {capacity}</p>
+          <p>👥 Office Capacity: {maxCapacity}</p>
           <p>📍 {address}</p>
         </div>
       )}

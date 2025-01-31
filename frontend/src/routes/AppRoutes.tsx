@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Router } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import OfficeView from '../pages/OfficeView/OfficeView';
 import AddOfficePage from '../pages/AddOfficePage/AddOfficePage';

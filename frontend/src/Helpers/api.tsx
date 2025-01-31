@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://localhost:7005/api';
+const API_BASE_URL = 'http://localhost:5026/api';
 
 // Fetch offices from the backend
 export const fetchOffices = async () => {
