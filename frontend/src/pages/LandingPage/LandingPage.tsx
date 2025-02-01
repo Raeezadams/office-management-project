@@ -22,13 +22,10 @@ const LandingPage: React.FC = () => {
     const getOffices = async () => {
       try {
         const officeData = await fetchOffices();
-        console.log("Fetched Data:", officeData); // Debugging
-  
-        // Ensure officeData is an array, fallback to empty array if not
         setOffices(Array.isArray(officeData) ? officeData : []);
       } catch (error) {
         console.error('Failed to fetch offices:', error);
-        setOffices([]); // Prevent `map` errors by setting an empty array
+        setOffices([]);
       } finally {
         setLoading(false);
       }
@@ -42,8 +39,11 @@ const LandingPage: React.FC = () => {
   }
 
   return (
+
     <div className="landing-page">
+      
       <h1 className="heading">All Offices</h1>
+      
       <div className='office-list'>
         {offices.map((office) => (
           <OfficeCard
@@ -59,6 +59,7 @@ const LandingPage: React.FC = () => {
         ))}
       </div>
     </div>
+    
   );
 };
 

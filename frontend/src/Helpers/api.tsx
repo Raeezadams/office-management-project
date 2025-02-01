@@ -10,5 +10,17 @@ export const fetchOffices = async () => {
   } catch (error) {
     console.error('Error fetching offices:', error);
     throw error;
-  }
+  }  
 };
+
+// Fetch employees by officeId from the backend
+export const fetchEmployees = async (officeId: number) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/employee/GetEmployeesByOffice/${officeId}`)
+    console.log(response)
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch employees: ", error);
+    throw error
+  }
+}

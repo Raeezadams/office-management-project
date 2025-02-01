@@ -23,7 +23,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
   const [showInfo, setShowInfo] = useState(false);
 
   return (
-    <div className="office-card" style={{ borderLeft: `4px solid ${color}` }}>
+    <div className="office-card" style={{ borderLeft: `12px solid ${color}` }}>
       <div className="office-card-header">
         <div>
           <h2 className="office-name">{name}</h2>
