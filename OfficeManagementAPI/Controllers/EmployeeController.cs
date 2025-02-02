@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OfficeManagementAPI.DTOs.Employee;
+using OfficeManagementAPI.Helpers;
 using OfficeManagementAPI.Interfaces;
 using OfficeManagementAPI.Mappers;
 using OfficeManagementAPI.Models;
@@ -23,6 +24,11 @@ namespace OfficeManagementAPI.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (!AvatarValidator.IsAvatarValid(employeeDto.Avatar))
+            {
+                return BadRequest();
             }
 
             var employee = employeeDto.ToEmployeeFromCreateDto();
@@ -53,6 +59,11 @@ namespace OfficeManagementAPI.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest();
+            }
+
+            if (!AvatarValidator.IsAvatarValid(updateEmployeeDto.Avatar))
+            {
+                return BadRequest("Invalid avatar selected.");
             }
 
             var updatedEmployee = await _empolyeeRepo.UpdateEmployeeAsync(id, updateEmployeeDto);

@@ -12,7 +12,9 @@ namespace OfficeManagementAPI.Mappers
             {
                 Id = employee.Id,
                 FirstName = employee.FirstName,
-                LastName = employee.LastName
+                LastName = employee.LastName,
+                Avatar = employee.Avatar,
+
             };
         }
 
@@ -23,6 +25,7 @@ namespace OfficeManagementAPI.Mappers
                 FirstName = employeeDto.FirstName,
                 LastName = employeeDto.LastName,
                 OfficeId = employeeDto.OfficeId,
+                Avatar = employeeDto.Avatar,
             };
         }
 
@@ -31,6 +34,7 @@ namespace OfficeManagementAPI.Mappers
             {
                 employee.FirstName = updatEemployeeDto.FirstName;
                 employee.LastName = updatEemployeeDto.LastName;
+                employee.Avatar = updatEemployeeDto.Avatar;
             };
         }
     }

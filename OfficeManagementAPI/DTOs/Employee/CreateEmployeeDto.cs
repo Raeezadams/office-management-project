@@ -14,6 +14,7 @@ namespace OfficeManagementAPI.DTOs.Employee
 
         [Required(ErrorMessage = "Office ID is required.")]
         [Range(1, int.MaxValue, ErrorMessage = "Office ID must be a positive number.")]
+        public string Avatar { get; set; } = string.Empty;
         public int OfficeId { get; set; }
     }
 }
