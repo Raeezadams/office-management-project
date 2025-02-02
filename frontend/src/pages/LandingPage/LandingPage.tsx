@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchOffices } from '../../Helpers/api';
 import './LandingPage.css';
-import OfficeCard from '../../components/OfficeCard/OfficeCard';
+import OfficeCard from '../../components/Office/OfficeCard/OfficeCard';
+import Spinner from '../../components/Spinner/Spinner';
 
 interface Office {
   id: number;
@@ -35,7 +36,11 @@ const LandingPage: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <Spinner /> 
+      </div>
+    );
   }
 
   return (
@@ -48,6 +53,7 @@ const LandingPage: React.FC = () => {
         {offices.map((office) => (
           <OfficeCard
             key={office.id}
+            id={office.id}
             name={office.name}
             staffCount={office.staffCount}
             color={office.color || '#1D4ED8'}
