@@ -1,12 +1,40 @@
 .office-card {
+  position: relative;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 16px;
+  margin-bottom: 0rem;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.office-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 12px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--primary-color) 60%, white 40%) 0%,
+    color-mix(in srgb, var(--primary-color) 60%, white 40%) 30%,
+    
+    color-mix(in srgb, var(--primary-color) 57%, white 43%) 30%,
+    color-mix(in srgb, var(--primary-color) 57%, white 43%) 30.3%,
+
+    color-mix(in srgb, var(--primary-color) 50%, white 50%) 30.3%,
+    color-mix(in srgb, var(--primary-color) 50%, white 50%) 65%,
+
+    color-mix(in srgb, var(--primary-color) 47%, white 53%) 65%,
+    color-mix(in srgb, var(--primary-color) 47%, white 53%) 65.3%,
+
+    color-mix(in srgb, var(--primary-color) 40%, white 60%) 65.3%,
+    color-mix(in srgb, var(--primary-color) 40%, white 60%) 100%
+  );
+  border-radius: 12px 0 0 12px;
 }
 
 .office-card-header {

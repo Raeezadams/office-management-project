@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { fetchEmployees, fetchOffices } from "../../Helpers/api";
 import EmployeeCard from "../../components/Employee/EmployeeCard/EmployeeCard";
 import Spinner from "../../components/Spinner/Spinner";
-import OfficeDetails from "../../components/Office/OfficeDetials/OfficeDetails";
 import "./OfficeView.css"
+import OfficeCard from "../../components/Office/OfficeCard/OfficeCard";
+import AddButtonImage from "../../assets/Icons/AddButton.png"
 
 interface Employee {
   id: string;
@@ -31,6 +32,10 @@ const OfficeView: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  const handleAddOffice = () => {
+    navigate('/add-Staff'); 
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +91,8 @@ const OfficeView: React.FC = () => {
       {/* Office Details */}
       {office && (
         <div className="p-4">
-          <OfficeDetails
+          <OfficeCard
+            id={office.id}
             name={office.name}
             staffCount={office.staffCount}
             color={office.color}
@@ -94,9 +100,10 @@ const OfficeView: React.FC = () => {
             email={office.email}
             maxCapacity={office.maxCapacity}
             address={office.address}
-          />
+         />
         </div>
       )}
+
 
       {/* Search Bar */}
       <div className="p-4">
@@ -116,7 +123,7 @@ const OfficeView: React.FC = () => {
         </div>
         {/* Staff Members Heading */}
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-2xl font-bold text-gray-800 pl-1">
+          <h2 className="text-2xl font-bold text-gray-800 pl-2">
             Staff Members In Office
           </h2>
           <span className="text-xl text-black font-medium pr-3">
@@ -126,16 +133,32 @@ const OfficeView: React.FC = () => {
       </div>
 
       {/* Employee List */}
-      <ul className="space-y-2 px-4">
-        {filteredEmployees.map((employee) => (
-          <EmployeeCard
-            key={employee.id}
-            firstName={employee.firstName}
-            lastName={employee.lastName}
-            avatar={employee.avatar}
+      <div className="space-y-2 px-4">
+        {filteredEmployees.length > 0 ? (
+          filteredEmployees.map((employee) => (
+            <EmployeeCard
+              key={employee.id}
+              firstName={employee.firstName}
+              lastName={employee.lastName}
+              avatar={employee.avatar}
+            />
+          ))
+        ) : (
+          <p className="text-gray-500 text-center mt-4">
+            No employees in this office😢.
+          </p>
+        )}
+      </div>
+      <button
+          onClick={handleAddOffice}
+          className="fixed bottom-8 right-8 bg-blue-500 w-16 h-16 rounded-full shadow-lg flex justify-center items-center hover:bg-blue-600 transition"
+        >
+          <img
+            src={AddButtonImage} // Use the imported image
+            alt="Add Office"
+            className="h-15 w-15"
           />
-        ))}
-      </ul>
+        </button>
     </div>
   );
 };

@@ -27,37 +27,36 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
   const [showInfo, setShowInfo] = useState(false);
 
   const handleCardClick = () => {
-    navigate(`/office/${id}`); 
+    const currentPath = window.location.pathname; 
+    const targetPath = `/office/${id}`; 
+  
+    if (currentPath !== targetPath) {
+      navigate(targetPath); 
+    }
   };
 
   const toggleMoreInfo = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation(); 
-    setShowInfo((prev) => !prev); 
+    setShowInfo((prev) => !prev);
   };
 
   return (
     <div
       className="office-card"
-      style={{ borderLeft: `12px solid ${color}` }}
-      onClick={handleCardClick} 
+      style={{ '--primary-color': color } as React.CSSProperties}
+      onClick={handleCardClick}
     >
       <div className="office-card-header">
         <div>
           <h2 className="office-name">{name}</h2>
           <p className="office-staff">👥 {staffCount} Staff Members in Office</p>
         </div>
-        <button
-          className="edit-btn"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <button className="edit-btn" onClick={(e) => e.stopPropagation()}>
           ✏️
         </button>
       </div>
       <hr className="divider" />
-      <button
-        className="toggle-info-btn"
-        onClick={toggleMoreInfo} 
-      >
+      <button className="toggle-info-btn" onClick={toggleMoreInfo}>
         {showInfo ? '▲ Hide info' : 'More info ▼'}
       </button>
       {showInfo && (
