@@ -1,0 +1,89 @@
+.model-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  .model-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+  }
+  
+  .model-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    width: 100%;
+    padding: 11px;
+    border-radius: 24px;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: #489DDA; 
+    transition: background-color 0.3s ease;
+
+  }
+  
+  
+  .delete-button {
+    background-color: transparent;
+    color: #489dda;
+  }
+  
+  .model-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .delete-button1 {
+    background: #F44336;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 80%; 
+    margin: 0 auto;
+  }
+  
+  
+  .cancel-button1 {
+    background: transparent;
+    color: #489DDA;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 80%; 
+    margin: 0 auto;
+  }
+  
+  

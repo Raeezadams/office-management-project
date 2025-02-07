@@ -1,0 +1,187 @@
+/* Modal Overlay */
+.model-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Container */
+  .model-container {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Close Button */
+  .model-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cancel-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Modal Title */
+  .model-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Inputs */
+  .model-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+
+/* Avatar Selection */
+.avatar-selection {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 12px; 
+    margin-bottom: 20px;
+  }
+  
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    border: 2px solid transparent;
+  }
+  
+  .avatar:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .avatar.selected {
+    border-color: #489DDA; 
+  }
+  
+  .avatar:nth-child(1),
+.avatar:nth-child(2),
+.avatar:nth-child(3),
+.avatar:nth-child(4) {
+  flex: 0 0 22%; 
+  max-width: 60px
+}
+
+.avatar:nth-child(5),
+.avatar:nth-child(6),
+.avatar:nth-child(7) {
+  flex: 0 0 30%; 
+  max-width: 60px
+}
+
+  /* Step Indicator */
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dot.active {
+    background: #489DDA;
+  }
+  
+  /* Next Button */
+  .model-submit-btn {
+    width: 80%;
+    padding: 11px;
+    background-color: #489DDA; 
+    color: white;
+    border: none;
+    border-radius: 24px; 
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .model-submit-btn:hover {
+    background-color: #377ab8;
+  }
+
+  /* Avatar Subtitle */
+    .model-subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: black; 
+    text-align: left;
+  }
+
+  
+  /* Back Arrow Icon */
+  .back-arrow-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-size: 32px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 0.5;
+    top: 20px;
+    left: 25px
+  }
+  
+  .back-arrow-btn img {
+    width: 40px; 
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .model-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cancel-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  
+  

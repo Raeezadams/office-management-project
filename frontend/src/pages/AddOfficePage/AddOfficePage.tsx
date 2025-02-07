@@ -1,9 +1,144 @@
-import React from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { createOffice } from "../../Helpers/api";
+import { toast } from "react-toastify";
+import "./AddOfficePage.css";
 
-interface Props {}
-
-const AddOfficePage = (props: Props) => {
-  return <div>AddOfficePage</div>;
+const initialFormData = {
+  name: "",
+  address: "",
+  email: "",
+  phone: "",
+  maxCapacity: "",
+  color: "",
 };
 
-export default AddOfficePage;
+const AddOffice = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState(initialFormData);
+  const [selectedColor, setSelectedColor] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const colors = [
+    "yellow",
+    "orange",
+    "red",
+    "brown",
+    "pink",
+    "green",
+    "blue",
+    "purple",
+    "violet",
+    "teal",
+    "peachpuff",
+    "turquoise",
+  ];
+
+  const handleChange = (e : any) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleColorSelect = (color : any) => {
+    setFormData((prevData) => ({ ...prevData, color }));
+    setSelectedColor(color);
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+
+      const response = await createOffice(formData);
+      if (response.status >= 200 && response.status < 300) {
+        toast.success("Office created successfully!");
+
+        setFormData(initialFormData);
+        setSelectedColor("");
+        navigate("/");
+      } else {
+        toast.error("Unexpected error occurred. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error creating office:", error);
+      toast.error("Failed to create office. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="add-office-page">
+      <h1 className="page-title">New Office</h1>
+      <form onSubmit={handleSubmit} className="add-office-form">
+        <input
+          type="text"
+          name="name"
+          placeholder="Office Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="text"
+          name="address"
+          placeholder="Physical Address"
+          value={formData.address}
+          onChange={handleChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          className="input-field"
+          required
+        />
+        <input
+          type="number"
+          name="maxCapacity"
+          placeholder="Maximum Capacity"
+          value={formData.maxCapacity}
+          onChange={handleChange}
+          className="input-field"
+          required
+          min="1"
+        />
+        <div className="color-selection">
+          <h2 className="color-title">Office Colour</h2>
+          <div className="color-buttons">
+            {colors.map((color) => (
+              <button
+                key={color}
+                type="button"
+                className={`color-circle ${selectedColor === color ? "selected" : ""}`}
+                style={{ backgroundColor: color }}
+                onClick={() => handleColorSelect(color)}
+                aria-label={`Select ${color} color`}
+              />
+            ))}
+          </div>
+        </div>
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading ? "Adding Office..." : "Add Office"}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default AddOffice;

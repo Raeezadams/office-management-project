@@ -4,9 +4,11 @@ interface EmployeeCardProps {
   firstName: string;
   lastName: string;
   avatar?: string;
+  employeeId: number; 
+  onActionsClick: (employeeId: number) => void;
 }
 
-const EmployeeCard: React.FC<EmployeeCardProps> = ({ firstName, lastName, avatar }) => {
+const EmployeeCard: React.FC<EmployeeCardProps> = ({ firstName, lastName, avatar, employeeId, onActionsClick }) => {
   const getAvatarPath = (avatar: string | undefined): string => {
     return `/Avatars/${avatar || 'Default.png'}`;
   };
@@ -21,7 +23,7 @@ const EmployeeCard: React.FC<EmployeeCardProps> = ({ firstName, lastName, avatar
         />
         <p className="text-sm font-medium text-gray-800">{`${firstName} ${lastName}`}</p>
       </div>
-      <button className="text-black hover:text-blue-500 text-lg">⋮</button>
+      <button className="text-black hover:text-blue-500 text-lg" onClick={() => onActionsClick(employeeId)}>⋮</button>
     </li>
   );
 };
