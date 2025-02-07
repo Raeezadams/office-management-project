@@ -19,7 +19,10 @@ export const fetchEmployees = async (officeId: number) => {
     const response = await axios.get(`${API_BASE_URL}/employee/GetEmployeesByOffice/${officeId}`)
     console.log(response)
     return response.data;
-  } catch (error) {
+  } catch (error: any) {
+    if (error.response && error.response.status === 404) {
+      return [];
+    }
     console.error("Failed to fetch employees: ", error);
     throw error
   }
@@ -40,9 +43,9 @@ export const addEmployee = async (employeeData: {
   }
 };
 
-export const fetchOfficeById = async (officeId: number) => {
+export const fetchOfficeById = async (id: number) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/offices/${officeId}`);
+    const response = await axios.get(`${API_BASE_URL}/offices/${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching office by ID:", error);
@@ -101,4 +104,40 @@ export const createOffice = async (officeData: {
     throw error
   }
 }
+
+// Update office
+export const updateOffice = async (
+  officeId: number,
+  officeData: {
+    name: string;
+    address: string;
+    email: string;
+    phone: string;
+    maxCapacity: number;
+    color: string;
+  }
+) => {
+  try {
+    const response = await axios.put(
+      `${API_BASE_URL}/offices/UpdateOffice/${officeId}`,
+      officeData
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error updating office:', error);
+    throw error;
+  }
+};
+
+
+
+export const deleteOffice = async (officeId: number) => {
+  try {
+    const response = await axios.delete(`${API_BASE_URL}/offices/DeleteOffice/${officeId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting office:', error);
+    throw error;
+  }
+};
 

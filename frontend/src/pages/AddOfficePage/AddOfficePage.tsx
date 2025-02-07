@@ -30,8 +30,6 @@ const AddOffice = () => {
     "purple",
     "violet",
     "teal",
-    "peachpuff",
-    "turquoise",
   ];
 
   const handleChange = (e : any) => {
@@ -70,6 +68,9 @@ const AddOffice = () => {
 
   return (
     <div className="add-office-page">
+      <div className="back-button" onClick={() => navigate("/")}>
+        ←
+      </div>
       <h1 className="page-title">New Office</h1>
       <form onSubmit={handleSubmit} className="add-office-form">
         <input
@@ -79,7 +80,7 @@ const AddOffice = () => {
           value={formData.name}
           onChange={handleChange}
           className="input-field"
-          required
+          autoComplete="off"
         />
         <input
           type="text"
@@ -88,7 +89,7 @@ const AddOffice = () => {
           value={formData.address}
           onChange={handleChange}
           className="input-field"
-          required
+          autoComplete="off"
         />
         <input
           type="email"
@@ -97,16 +98,16 @@ const AddOffice = () => {
           value={formData.email}
           onChange={handleChange}
           className="input-field"
-          required
+          autoComplete="off"
         />
         <input
-          type="tel"
+          type="text"
           name="phone"
           placeholder="Phone Number"
           value={formData.phone}
           onChange={handleChange}
           className="input-field"
-          required
+          autoComplete="off"
         />
         <input
           type="number"
@@ -115,8 +116,7 @@ const AddOffice = () => {
           value={formData.maxCapacity}
           onChange={handleChange}
           className="input-field"
-          required
-          min="1"
+          autoComplete="off"
         />
         <div className="color-selection">
           <h2 className="color-title">Office Colour</h2>
@@ -128,13 +128,12 @@ const AddOffice = () => {
                 className={`color-circle ${selectedColor === color ? "selected" : ""}`}
                 style={{ backgroundColor: color }}
                 onClick={() => handleColorSelect(color)}
-                aria-label={`Select ${color} color`}
               />
             ))}
           </div>
         </div>
-        <button type="submit" className="submit-button" disabled={loading}>
-          {loading ? "Adding Office..." : "Add Office"}
+        <button type="submit" className="submit-button">
+          Add Office
         </button>
       </form>
     </div>

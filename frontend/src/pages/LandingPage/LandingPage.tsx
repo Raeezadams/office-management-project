@@ -26,6 +26,10 @@ const LandingPage: React.FC = () => {
     navigate('/add-office');
   };
 
+  const handleEditOffice = () => {
+    navigate(`/edit-office/{officeId}`)
+  }
+
   useEffect(() => {
     const getOffices = async () => {
       try {

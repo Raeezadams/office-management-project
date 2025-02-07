@@ -48,18 +48,17 @@ const OfficeView: React.FC = () => {
     setModelOpen(false); 
     try {
       const [updatedOffice, employeesData] = await Promise.all([
-        fetchOfficeById(Number(id)), // Fetch updated office details
-        fetchEmployees(Number(id)), // Fetch updated employee list
+        fetchOfficeById(Number(id)), 
+        fetchEmployees(Number(id)), 
       ]);
-      setOffice(updatedOffice); // Update office state
-      setEmployees(employeesData); // Update employee state
+      setOffice(updatedOffice);
+      setEmployees(employeesData); 
     } catch (error) {
       console.error("Failed to refresh data after adding employee:", error);
     }
   };
 
   const handleCloseActionsModel = () => {
-    // setSelectedEmployeeId(null);
     setActionsModelOpen(false);
   };
 
