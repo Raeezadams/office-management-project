@@ -29,7 +29,6 @@ const EditEmployeeModel: React.FC<EditEmployeeModelProps> = ({ isOpen, onClose, 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log("EditEmployeeModel received employeeId1:", employeeId);
   }, [employeeId]);
   
   useEffect(() => {

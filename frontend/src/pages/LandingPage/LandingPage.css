@@ -42,8 +42,8 @@
   }
 
   .office-list {
-    display: grid; /* Use a grid layout for larger screens */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible columns */
-    gap: 1.5rem; /* Spacing between grid items */
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
   }
 }

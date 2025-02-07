@@ -35,7 +35,7 @@ const EditOfficePage = () => {
     "teal",
   ];
 
-  // Fetch office data on component mount
+
   useEffect(() => {
     const fetchOfficeData = async () => {
       if (!id || isNaN(Number(id))) {
@@ -71,7 +71,6 @@ const EditOfficePage = () => {
     setSelectedColor(color);
   };
 
-  // Submit form to update office
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -91,7 +90,6 @@ const EditOfficePage = () => {
     }
   };
 
-  // Handle delete office
   const handleDelete = async () => {
     setLoading(true);
     try {
@@ -107,7 +105,7 @@ const EditOfficePage = () => {
     }
   };
 
-  // Render a full-page spinner until the office data is loaded
+
   if (!formData) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-100">

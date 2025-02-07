@@ -1,4 +1,4 @@
-/* Modal Overlay */
+
 .model-overlay {
     position: fixed;
     top: 0;
@@ -12,7 +12,7 @@
     z-index: 1000;
   }
   
-  /* Modal Container */
+
   .model-container {
     background: white;
     width: 90%;
@@ -24,7 +24,7 @@
     position: relative;
   }
   
-  /* Close Button */
+
   .model-close-btn {
     position: absolute;
     top: 12px;
@@ -39,14 +39,14 @@
     height: 20px;
   }
   
-  /* Modal Title */
+
   .model-title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
   }
   
-  /* Form Inputs */
+
   .model-input {
     width: 100%;
     padding: 12px;
@@ -57,7 +57,6 @@
   }
   
 
-/* Avatar Selection */
 .avatar-selection {
     display: flex;
     flex-wrap: wrap; 
@@ -99,7 +98,6 @@
   max-width: 60px
 }
 
-  /* Step Indicator */
   .step-indicator {
     display: flex;
     justify-content: center;
@@ -120,7 +118,7 @@
     background: #489DDA;
   }
   
-  /* Next Button */
+
   .model-submit-btn {
     width: 80%;
     padding: 11px;
@@ -137,7 +135,7 @@
     background-color: #377ab8;
   }
 
-  /* Avatar Subtitle */
+
     .model-subtitle {
     font-size: 20px;
     font-weight: bold;
@@ -147,7 +145,7 @@
   }
 
   
-  /* Back Arrow Icon */
+ 
   .back-arrow-btn {
     background: none;
     border: none;
@@ -178,7 +176,7 @@
   }
   
   .cancel-icon {
-    width: 24px; /* Adjust size as needed */
+    width: 24px; 
     height: 24px;
     cursor: pointer;
   }

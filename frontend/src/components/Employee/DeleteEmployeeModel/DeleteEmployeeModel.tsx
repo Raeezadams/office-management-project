@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "./DeleteEmployeeModel.css";
-import { deleteEmployee } from "../../../Helpers/api"; // Add this function to your API helpers
+import { deleteEmployee } from "../../../Helpers/api"; 
 
 interface DeleteEmployeeModelProps {
   isOpen: boolean;

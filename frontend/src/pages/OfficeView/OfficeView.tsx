@@ -10,6 +10,7 @@ import AddEmployeeModel from '../../components/Employee/AddStaffModel/NewEmploye
 import EmployeeActionsModel from "../../components/Employee/EmployeeActionsModel/EmployeeActionsModel";
 import EditEmployeeModel from "../../components/Employee/EditEmployeeModel/EditEmployeeModel";
 import DeleteEmployeeModel from "../../components/Employee/DeleteEmployeeModel/DeleteEmployeeModel";
+import searchIcon from "../../assets/Icons/SearchIcon.png"
 
 
 interface Employee {
@@ -68,7 +69,6 @@ const OfficeView: React.FC = () => {
   };
 
   const handleEdit = (employeeId: number) => {
-    console.log("Setting selectedEmployeeId:", employeeId)
     setSelectedEmployeeId(employeeId)
     setActionsModelOpen(false);
     setEditModelOpen(true);
@@ -181,7 +181,7 @@ const OfficeView: React.FC = () => {
       <div className="p-4">
         <div className="relative">
           <img
-            src="/Icons/SearchIcon.png"
+            src={searchIcon}
             alt="Search Icon"
             className="search-icon"
           />
