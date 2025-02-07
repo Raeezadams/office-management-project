@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchOfficeById, updateOffice, deleteOffice } from "../../Helpers/api";
 import { toast } from "react-toastify";
+import Spinner from "../../components/Spinner/Spinner";
 import "./EditOfficePage.css";
 
 interface OfficeData {
@@ -92,7 +93,6 @@ const EditOfficePage = () => {
 
   // Handle delete office
   const handleDelete = async () => {
-
     setLoading(true);
     try {
       const officeId = Number(id);
@@ -107,7 +107,14 @@ const EditOfficePage = () => {
     }
   };
 
-  if (!formData) return <p>Loading...</p>;
+  // Render a full-page spinner until the office data is loaded
+  if (!formData) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className="add-office-page">
@@ -170,8 +177,8 @@ const EditOfficePage = () => {
             ))}
           </div>
         </div>
-        <button type="submit" className="submit-button">
-          {loading ? "Updating..." : "Update Office"}
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading ? <Spinner /> : "Update Office"}
         </button>
         <button
           type="button"

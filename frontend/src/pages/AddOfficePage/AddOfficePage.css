@@ -1,6 +1,7 @@
-/* Container Styling */
+/* Base Styles (Mobile First) */
 .add-office-page {
-  width: 340px;
+  width: 90%;
+  max-width: 340px;
   margin: 0 auto;
   padding: 16px;
   display: flex;
@@ -16,6 +17,7 @@
 .back-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 25px;
   font-weight: bold;
   color: black;
@@ -25,7 +27,7 @@
   left: 16px;
   text-decoration: none;
   border-radius: 50%;
-  width: 60px; /* Make it larger for better touch target size */
+  width: 60px; /* Larger touch target */
   height: 60px;
 }
 
@@ -37,8 +39,7 @@
   text-align: center;
   position: relative;
   top: -4px;
-  left: -16px;
-  transform: translateX(20px); 
+  /* Center title horizontally */
 }
 
 /* Form Styling */
@@ -79,8 +80,8 @@
 
 .color-buttons {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 12px; 
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
   justify-content: center;
 }
 
@@ -94,10 +95,10 @@
 }
 
 .color-circle.selected {
-  border-color: black; 
+  border-color: black;
 }
 
-/* Button Styling */
+/* Submit Button Styling */
 .submit-button {
   width: 100%;
   padding: 14px;
@@ -109,10 +110,70 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px; 
+  margin-top: 10px;
   transition: background-color 0.2s;
 }
 
 .submit-button:hover {
   background-color: #0056b3;
+}
+
+/* Tablet Breakpoint (min-width: 768px) */
+@media (min-width: 768px) {
+  .add-office-page {
+    max-width: 500px;
+    padding: 24px;
+  }
+
+  .back-button {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .input-field {
+    font-size: 18px;
+    padding: 16px;
+  }
+
+  .color-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .submit-button {
+    font-size: 18px;
+    padding: 16px;
+  }
+}
+
+/* Desktop Breakpoint (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .add-office-page {
+    max-width: 700px;
+    padding: 32px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .input-field {
+    font-size: 20px;
+    padding: 18px;
+  }
+
+  .color-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .submit-button {
+    font-size: 20px;
+    padding: 18px;
+  }
 }

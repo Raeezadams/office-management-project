@@ -26,9 +26,6 @@ const LandingPage: React.FC = () => {
     navigate('/add-office');
   };
 
-  const handleEditOffice = () => {
-    navigate(`/edit-office/{officeId}`)
-  }
 
   useEffect(() => {
     const getOffices = async () => {
@@ -84,7 +81,7 @@ const LandingPage: React.FC = () => {
           className="fixed bottom-8 right-8 bg-blue-500 w-16 h-16 rounded-full shadow-lg flex justify-center items-center hover:bg-blue-600 transition"
         >
           <img
-            src={AddButtonImage} // Use the imported image
+            src={AddButtonImage} 
             alt="Add Office"
             className="h-15 w-15"
           />

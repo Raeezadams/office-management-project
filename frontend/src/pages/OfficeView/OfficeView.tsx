@@ -147,7 +147,7 @@ const OfficeView: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 container mx-auto ">
       {/* Header */}
       <div className="flex items-center justify-between bg-white shadow p-4 sticky top-0 z-10">
         <button
@@ -205,7 +205,7 @@ const OfficeView: React.FC = () => {
       </div>
 
       {/* Employee List */}
-      <div className="space-y-2 px-4">
+      <section className="px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredEmployees.length > 0 ? (
           filteredEmployees.map((employee) => (
             <EmployeeCard
@@ -218,11 +218,11 @@ const OfficeView: React.FC = () => {
             />
           ))
         ) : (
-          <p className="text-gray-500 text-center mt-4">
+          <p className="text-gray-500 text-center mt-4 col-span-full">
             No employees in this office😢.
           </p>
         )}
-      </div>
+      </section>
       {/* Actions Model */}
       <EmployeeActionsModel
         isOpen={isActionsModelOpen}

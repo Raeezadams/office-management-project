@@ -1,8 +1,15 @@
 .search-icon {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-85%);
-    width: 1.25rem; 
-    height: 1.25rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-85%);
+  width: 1.25rem; 
+  height: 1.25rem;
+}
+@media (min-width: 768px) {
+  .search-icon {
+    right: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
+}

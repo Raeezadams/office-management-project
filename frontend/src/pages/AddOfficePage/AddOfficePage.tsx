@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createOffice } from "../../Helpers/api";
 import { toast } from "react-toastify";
 import "./AddOfficePage.css";
+import Spinner from "../../components/Spinner/Spinner";
 
 const initialFormData = {
   name: "",
@@ -65,6 +66,14 @@ const AddOffice = () => {
       setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className="add-office-page">

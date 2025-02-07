@@ -1,13 +1,15 @@
+/* Base Styles (Mobile First) */
 .office-card {
   position: relative;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0.5rem 0.5rem 16px;
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  cursor: pointer;
 }
 
 .office-card::before {
@@ -21,16 +23,12 @@
     to bottom,
     color-mix(in srgb, var(--primary-color) 60%, white 40%) 0%,
     color-mix(in srgb, var(--primary-color) 60%, white 40%) 30%,
-    
     color-mix(in srgb, var(--primary-color) 57%, white 43%) 30%,
     color-mix(in srgb, var(--primary-color) 57%, white 43%) 30.3%,
-
     color-mix(in srgb, var(--primary-color) 50%, white 50%) 30.3%,
     color-mix(in srgb, var(--primary-color) 50%, white 50%) 65%,
-
     color-mix(in srgb, var(--primary-color) 47%, white 53%) 65%,
     color-mix(in srgb, var(--primary-color) 47%, white 53%) 65.3%,
-
     color-mix(in srgb, var(--primary-color) 40%, white 60%) 65.3%,
     color-mix(in srgb, var(--primary-color) 40%, white 60%) 100%
   );
@@ -54,24 +52,24 @@
 
 .office-staff {
   display: flex;
-  align-items: center; 
+  align-items: center;
   font-size: 0.875rem;
   color: gray;
   margin-bottom: 0.25rem;
   padding-left: 0.8rem;
-  gap: 0.5rem; 
+  gap: 0.5rem;
 }
 
 .staff-icon {
-  width: 18px; 
+  width: 18px;
   height: 18px;
   object-fit: contain;
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #e5e7eb; 
-  margin: 0.75rem auto; 
+  border-top: 1px solid #e5e7eb;
+  margin: 0.75rem auto;
   width: 95%;
 }
 
@@ -80,15 +78,14 @@
   border: none;
   cursor: pointer;
   font-size: 1rem;
-  color: #0D4477 ;
+  color: #0D4477;
   text-align: center;
   margin-bottom: 0.1rem;
-
   transition: color 0.3s;
 }
 
 .toggle-info-btn:hover {
-  color: #0d4477; 
+  color: #0d4477;
 }
 
 .office-card-details {
@@ -101,11 +98,11 @@
   margin: 0.25rem 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Space between the icon and the text */
+  gap: 0.5rem;
 }
 
 .office-card-details img {
-  width: 18px; /* Adjust icon size */
+  width: 18px;
   height: 18px;
   object-fit: contain;
 }
@@ -119,17 +116,89 @@
   padding: 0.25rem 0.5rem;
 }
 
+/* Hover Effects */
 .office-card:hover {
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
   transition: all 0.3s ease;
 }
 
-.staff-icon {
-  width: 18px; /* Adjust size as needed */
-  height: 18px;
-  margin-right: 0.5rem; /* Space between the icon and the text */
-  vertical-align: middle; /* Align icon with text */
+/* Responsive Adjustments */
+
+/* Tablet Breakpoint (min-width: 768px) */
+@media (min-width: 768px) {
+  .office-card {
+    padding: 1rem 1rem 1rem 24px;
+    gap: 1em;
+  }
+  .office-name {
+    font-size: 2rem;
+    padding-left: 1rem;
+  }
+  .office-staff {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+  .divider {
+    margin: 1rem auto;
+  }
+  .toggle-info-btn {
+    font-size: 1.125rem;
+  }
+  .office-card-details {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+  .office-card-details img {
+    width: 20px;
+    height: 20px;
+  }
+  .edit-btn {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+  .staff-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
 }
 
-
+/* Desktop Breakpoint (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .office-card {
+    padding: 1.5rem 1.5rem 1.5rem 32px;
+    gap: 1.25em;
+  }
+  .office-name {
+    font-size: 2.25rem;
+    padding-left: 1.25rem;
+  }
+  .office-staff {
+    font-size: 1.125rem;
+    padding-left: 1.25rem;
+  }
+  .divider {
+    margin: 1.25rem auto;
+  }
+  .toggle-info-btn {
+    font-size: 1.25rem;
+  }
+  .office-card-details {
+    font-size: 1.125rem;
+    padding-left: 1.25rem;
+  }
+  .office-card-details img {
+    width: 24px;
+    height: 24px;
+  }
+  .edit-btn {
+    font-size: 1.75rem;
+    padding: 0.5rem 1rem;
+  }
+  .staff-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.75rem;
+  }
+}

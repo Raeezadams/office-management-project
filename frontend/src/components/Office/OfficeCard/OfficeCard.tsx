@@ -60,7 +60,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({
               src={staffIcon}
               alt="Staff Icon"
               className="staff-icon"/>{" "}
-              {staffCount} Staff Members in Office
+              <strong style={{ color: "black" }}>{staffCount}</strong> Staff Members in Office
           </p>
         </div>
         <button className="edit-btn" onClick={handleEditOffice}>
