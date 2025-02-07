@@ -3,6 +3,7 @@ using OfficeManagementAPI.DTOs;
 using OfficeManagementAPI.DTOs.Office;
 using OfficeManagementAPI.Interfaces;
 using OfficeManagementAPI.Mappers;
+using OfficeManagementAPI.Models;
 using OfficeManagementAPI.Repositories;
 
 namespace OfficeManagementAPI.Controllers
@@ -54,6 +55,43 @@ namespace OfficeManagementAPI.Controllers
             var createdOffice = await _officerepo.AddOfficeAsync(office);
 
             return CreatedAtAction(nameof(GetOfficeById), new { id = createdOffice.Id }, createdOffice.ToOfficeDto());
+        }
+
+        [HttpPut("UpdateOffice/{id:int}")]
+        public async Task<IActionResult> UpdateOffice( int id, [FromBody] UpdateOfficeDto updateOfficeDto)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var office = await _officerepo.UpdateOfficeAsync(id, updateOfficeDto);
+
+            if (office == null)
+            {
+                return NotFound("Office not found");
+            }
+
+            return Ok(office);
+        }
+
+        [HttpDelete("DeleteOffice/{id:int}")]
+        public async Task<IActionResult> DeleteOffice (int id)
+        {
+            if (!ModelState.IsValid) 
+            { 
+                return BadRequest();
+            }
+
+            var office = await _officerepo.DeleteOfficeByIdAsync(id);
+
+            if (office == null)
+            {
+                return NotFound("Employee does not exsist");
+            }
+
+            return Ok("Removed employee");
+
         }
 
     }

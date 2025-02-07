@@ -1,4 +1,5 @@
-﻿using OfficeManagementAPI.DTOs.Office;
+﻿using OfficeManagementAPI.DTOs.Employee;
+using OfficeManagementAPI.DTOs.Office;
 using OfficeManagementAPI.DTOs.OfficeDto;
 using OfficeManagementAPI.Models;
 
@@ -33,6 +34,18 @@ namespace OfficeManagementAPI.Mappers
                 Color = officeDto.color
 
             };
+        }
+
+        public static void UpdateOfficeFromDto(this Office office, UpdateOfficeDto updateOfficeDto)
+        {
+            {
+                office.Name = updateOfficeDto.name;
+                office.Address = updateOfficeDto.address;
+                office.Email = updateOfficeDto.email;
+                office.Phone = updateOfficeDto.phone;
+                office.MaxCapacity = updateOfficeDto.maxCapacity;
+                office.Color = updateOfficeDto.color;
+            }
         }
     }
 }
