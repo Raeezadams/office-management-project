@@ -9,13 +9,16 @@ The **Office Management Application** allows users to efficiently manage offices
 ---
 
 ## Table of Contents
+- [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Backend Setup](#backend-setup)
 - [Frontend Setup](#frontend-setup)
-- [API Endpoints](#api-endpoints)
-- [Deployment](#deployment)
-- [Screenshots](#screenshots)
-- [Additional Resources](#additional-resources)
+- [API Endpoints](#-api-endpoints)
+- [Deployment Instructions](#-deployment-instructions)
+- [Additional Resources](#-additional-resources)
+- [Bonus Points](#-bonus-points)
+- [Acknowledgements](#-acknowledgements)
+
 
 ---
 
@@ -51,6 +54,7 @@ dotnet run
 🌐 The backend API will be available at: https://localhost:5001.
 
 💻 Frontend Setup
+
 1️⃣ Navigate to the Frontend Directory
 Move to the frontend folder:
 
@@ -76,12 +80,19 @@ The frontend will be available at: http://localhost:3000.
 🔗 API Endpoints
 Here are some key API endpoints for testing:
 
-Action	Method	Endpoint
-Get All Offices	GET	/api/offices/GetAllOffices
-Add a New Employee	POST	/api/employee/AddEmployee
-Update Office Details	PUT	/api/offices/UpdateOffice/{id}
-Delete an Employee	DELETE	/api/employee/DeleteEmployee/{id}
-💡 Tip: Use Postman or the included .http file to test these endpoints.
+### 🔗 API Endpoints
+Here are some key API endpoints for testing:
+
+| **Action**                | **Method** | **Endpoint**                           |
+|---------------------------|------------|----------------------------------------|
+| Get All Offices           | `GET`      | `/api/offices/GetAllOffices`           |
+| Add a New Employee        | `POST`     | `/api/employee/AddEmployee`            |
+| Update Office Details      | `PUT`      | `/api/offices/UpdateOffice/{id}`       |
+| Delete an Employee         | `DELETE`   | `/api/employee/DeleteEmployee/{id}`    |
+
+💡 **Tip:** Use [Postman](https://www.postman.com/) or the included `.http` file to test these endpoints.
+
+--- 
 
 📦 Deployment Instructions
 Frontend Deployment:
@@ -93,15 +104,24 @@ Host the .NET Core backend on services like Azure App Service or AWS Elastic Bea
 Database:
 Use production-ready database hosting solutions like Azure SQL or AWS RDS.
 
+---
 
-📚 Additional Resources
-Figma Design: View Here
-Technical Documentation: Detailed API and UI flow documentation is included within the project.
-🏆 Bonus Points
-✅ Fully Responsive Design: Optimized for mobile, tablet, and desktop devices.
-✅ Modular Architecture: Reusable components and services for a scalable codebase.
-✅ Deployment Ready: Clear instructions for hosting and testing make deployment a breeze.
 
-🙌 Acknowledgements
-This application was developed as part of the Specno Technical Assessment. Thank you for the opportunity to showcase my skills!. Thank you for the opportunity to showcase my skills!
+## 📚 Additional Resources
+
+- **Figma Design**: [View Here](https://www.figma.com/design/zjxFBi6BYz33lIOvm0kufG/Intermediate-Tech-Assessment?node-id=2-2&p=f&t=Q681M0em1as3Mfjg-0)
+
+---
+
+## 🏆 Bonus Points
+
+✅ **Fully Responsive Design**: Optimized for mobile, tablet, and desktop devices.  
+✅ **Modular Architecture**: Reusable components and services for a scalable codebase.  
+✅ **Deployment Ready**: Clear instructions for hosting and testing make deployment a breeze.
+
+## 🙌 Acknowledgements
+
+This application was developed as part of the **Specno Technical Assessment**.  
+Thank you for the opportunity to showcase my skills!
+
 
