@@ -14,7 +14,6 @@ The **Office Management Application** allows users to efficiently manage offices
 - [Backend Setup](#backend-setup)
 - [Frontend Setup](#frontend-setup)
 - [API Endpoints](#-api-endpoints)
-- [Deployment Instructions](#-deployment-instructions)
 - [Additional Resources](#-additional-resources)
 - [Bonus Points](#-bonus-points)
 - [Acknowledgements](#-acknowledgements)
@@ -37,7 +36,7 @@ Ensure you have the following installed:
    - Update the connection string with your SQL Server details:
      ```json
      "ConnectionStrings": {
-         "DefaultConnection": "Server=YOUR_SERVER;Database=OfficeDB;Trusted_Connection=True;"
+         "DefaultConnection": "Data Source=YOUR_SERVER\\YOUR_INSTANCE;Initial Catalog=YOUR_DATABASE;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
      }
      ```
 
@@ -53,14 +52,14 @@ dotnet run
 ```
 🌐 The backend API will be available at: https://localhost:5001.
 
-💻 Frontend Setup
+## Frontend Setup
 
-1️⃣ Navigate to the Frontend Directory
-Move to the frontend folder:
-
-```bash
-cd frontend
-```
+1️⃣ **Navigate to the Frontend Directory**  
+   Move to the frontend folder:
+   ```bash
+   cd frontend
+   ```
+   
 2️⃣ Install Dependencies
 
 Install all required Node.js packages:
@@ -92,19 +91,7 @@ Here are some key API endpoints for testing:
 
 💡 **Tip:** Use [Postman](https://www.postman.com/) or the included `.http` file to test these endpoints.
 
---- 
 
-📦 Deployment Instructions
-Frontend Deployment:
-Deploy the React frontend to platforms like Vercel or Netlify.
-
-Backend Hosting:
-Host the .NET Core backend on services like Azure App Service or AWS Elastic Beanstalk.
-
-Database:
-Use production-ready database hosting solutions like Azure SQL or AWS RDS.
-
----
 
 
 ## 📚 Additional Resources
