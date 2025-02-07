@@ -22,19 +22,19 @@ namespace OfficeManagementAPI.Mappers
         {
             return new Employee
             {
-                FirstName = employeeDto.FirstName,
-                LastName = employeeDto.LastName,
-                OfficeId = employeeDto.OfficeId,
-                Avatar = employeeDto.Avatar,
+                FirstName = employeeDto.firstName,
+                LastName = employeeDto.lastName,
+                OfficeId = employeeDto.officeId,
+                Avatar = employeeDto.avatar,
             };
         }
 
         public static void UpdateEmployeeFromDto (this Employee employee, UpdateEmployeeDto updatEemployeeDto)
         {
             {
-                employee.FirstName = updatEemployeeDto.FirstName;
-                employee.LastName = updatEemployeeDto.LastName;
-                employee.Avatar = updatEemployeeDto.Avatar;
+                employee.FirstName = updatEemployeeDto.firstName;
+                employee.LastName = updatEemployeeDto.lastName;
+                employee.Avatar = updatEemployeeDto.avatar;
             };
         }
     }

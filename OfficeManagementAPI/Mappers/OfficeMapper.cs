@@ -25,12 +25,12 @@ namespace OfficeManagementAPI.Mappers
         {
             return new Office
             {
-                Name = officeDto.Name,
-                Address = officeDto.Address,
-                Email = officeDto.Email,
-                Phone = officeDto.Phone,
-                MaxCapacity = officeDto.MaxCapacity,
-                Color = officeDto.Color
+                Name = officeDto.name,
+                Address = officeDto.address,
+                Email = officeDto.email,
+                Phone = officeDto.phone,
+                MaxCapacity = officeDto.maxCapacity,
+                Color = officeDto.color
 
             };
         }

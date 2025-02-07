@@ -26,7 +26,7 @@ namespace OfficeManagementAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!AvatarValidator.IsAvatarValid(employeeDto.Avatar))
+            if (!AvatarValidator.IsAvatarValid(employeeDto.avatar))
             {
                 return BadRequest();
             }
@@ -61,7 +61,7 @@ namespace OfficeManagementAPI.Controllers
                 return BadRequest();
             }
 
-            if (!AvatarValidator.IsAvatarValid(updateEmployeeDto.Avatar))
+            if (!AvatarValidator.IsAvatarValid(updateEmployeeDto.avatar))
             {
                 return BadRequest("Invalid avatar selected.");
             }
