@@ -77,9 +77,6 @@ npm start
 🌐 The Frontend
 The frontend will be available at: http://localhost:3000.
 
-🔗 API Endpoints
-Here are some key API endpoints for testing:
-
 ### 🔗 API Endpoints
 Here are some key API endpoints for testing:
 
@@ -90,7 +87,7 @@ Here are some key API endpoints for testing:
 | Update Office Details      | `PUT`      | `/api/offices/UpdateOffice/{id}`       |
 | Delete an Employee         | `DELETE`   | `/api/employee/DeleteEmployee/{id}`    |
 
-💡 **Tip:** Use [Postman](https://www.postman.com/) or the included `.http` file to test these endpoints.
+💡 **Tip:** Use [Postman](https://www.postman.com/) or [Swagger](https://swagger.io/) to test these endpoints.
 
 
 ## Deployment
