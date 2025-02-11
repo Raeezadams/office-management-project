@@ -14,6 +14,7 @@ The **Office Management Application** allows users to efficiently manage offices
 - [Backend Setup](#backend-setup)
 - [Frontend Setup](#frontend-setup)
 - [API Endpoints](#-api-endpoints)
+- [Deployment](#deployment)
 - [Additional Resources](#-additional-resources)
 - [Bonus Points](#-bonus-points)
 - [Acknowledgements](#-acknowledgements)
@@ -92,6 +93,21 @@ Here are some key API endpoints for testing:
 💡 **Tip:** Use [Postman](https://www.postman.com/) or the included `.http` file to test these endpoints.
 
 
+## Deployments 
+
+This application is hosted on a free Amazon EC2 instance and served via IIS.
+You can access the application by clicking [View Here](http://13.60.171.183:8080/).
+
+**Environment Details:**
+- **Platform:** Free Amazon EC2 instance
+- **Server Software:** IIS (Internet Information Services)
+- **.NET Version:** .NET 8
+- **OS:** Windows Server (version if known, e.g., 2019 or 2022)
+
+**Note:**  
+Due to the limitations of the free tier, the instance may have resource constraints and occasional performance limitations. The IIS configuration is set up to run the application with "No Managed Code" in the application pool, and necessary modules (like the ASP.NET Core Module) have been installed.
+
+For any updates or redeployment, please ensure that the EC2 instance has the latest .NET 8 Hosting Bundle installed and that the IIS settings match those required by the application.
 
 
 ## 📚 Additional Resources
