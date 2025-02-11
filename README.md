@@ -93,7 +93,7 @@ Here are some key API endpoints for testing:
 💡 **Tip:** Use [Postman](https://www.postman.com/) or the included `.http` file to test these endpoints.
 
 
-## Deployments 
+## Deployment
 
 This application is hosted on a free Amazon EC2 instance and served via IIS.
 You can access the application by clicking [View Here](http://13.60.171.183:8080/).
