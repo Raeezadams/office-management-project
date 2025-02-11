@@ -17,15 +17,30 @@ interface EditEmployeeModelProps {
   employeeId: number | null;
 }
 
+const avatarFileNameMapping: { [key: string]: string } = {
+  [Avatar1]: "Avatar1.png",
+  [Avatar2]: "Avatar2.png",
+  [Avatar3]: "Avatar3.png",
+  [Avatar4]: "Avatar4.png",
+  [Avatar5]: "Avatar5.png",
+  [Avatar6]: "Avatar6.png",
+  [Avatar7]: "Default.png",
+};
+
 const EditEmployeeModel: React.FC<EditEmployeeModelProps> = ({ isOpen, onClose, employeeId }) => {
   const [step, setStep] = useState(1);
-  const [employee, setEmployee] = useState<{ id: number; firstName: string; lastName: string; avatar: string }>({
+  const [employee, setEmployee] = useState<{
+    id: number;
+    firstName: string;
+    lastName: string;
+    avatar: string;
+  }>({
     id: 0,
     firstName: "",
     lastName: "",
     avatar: "",
   });
-  
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -47,11 +62,11 @@ const EditEmployeeModel: React.FC<EditEmployeeModelProps> = ({ isOpen, onClose, 
   }, [employeeId]);
 
   const handleSave = async () => {
-    if (!employeeId){
-      toast.error("Employee ID is missing")
+    if (!employeeId) {
+      toast.error("Employee ID is missing");
       return;
     }
-    const avatarFileName = employee.avatar.split("/").pop() || "" ;
+    const avatarFileName = avatarFileNameMapping[employee.avatar] || "";
 
     const updatedEmployeeData = {
       id: employeeId,
@@ -60,18 +75,16 @@ const EditEmployeeModel: React.FC<EditEmployeeModelProps> = ({ isOpen, onClose, 
       avatar: avatarFileName,
     };
 
-    
-
     try {
       setLoading(true);
-      await updateEmployee(employeeId!, updatedEmployeeData);
+      await updateEmployee(employeeId, updatedEmployeeData);
       toast.success("Employee updated successfully!");
       onClose();
     } catch (error) {
       toast.error("Failed to update employee. Please try again.");
     } finally {
       setLoading(false);
-      setStep(1)
+      setStep(1);
     }
   };
 
@@ -141,7 +154,9 @@ const EditEmployeeModel: React.FC<EditEmployeeModelProps> = ({ isOpen, onClose, 
                     className={`avatar ${
                       employee.avatar === avatar ? "selected" : ""
                     }`}
-                    onClick={() => setEmployee({ ...employee, avatar })}
+                    onClick={() =>
+                      setEmployee({ ...employee, avatar: avatar })
+                    }
                   />
                 )
               )}

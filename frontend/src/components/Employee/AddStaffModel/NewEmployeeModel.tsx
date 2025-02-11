@@ -17,6 +17,16 @@ interface AddEmployeeModelProps {
   officeId: number; 
 }
 
+const avatarFileNameMapping: { [key: string]: string } = {
+  [Avatar1]: "Avatar1.png",
+  [Avatar2]: "Avatar2.png",
+  [Avatar3]: "Avatar3.png",
+  [Avatar4]: "Avatar4.png",
+  [Avatar5]: "Avatar5.png",
+  [Avatar6]: "Avatar6.png",
+  [Avatar7]: "Default.png",
+};
+
 const AddEmployeeModel: React.FC<AddEmployeeModelProps> = ({ isOpen, onClose, officeId }) => {
   const [step, setStep] = useState(1);
   const [firstName, setFirstName] = useState("");
@@ -37,7 +47,8 @@ const AddEmployeeModel: React.FC<AddEmployeeModelProps> = ({ isOpen, onClose, of
       toast.info("Please fill out all fields and select an avatar.");
       return;
     }
-    const avatarFileName = selectedAvatar.split("/").pop() || "" ;
+
+    const avatarFileName = avatarFileNameMapping[selectedAvatar] || "";
 
     const employeeData = {
       firstName,
