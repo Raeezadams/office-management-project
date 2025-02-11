@@ -24,7 +24,7 @@ The **Office Management Application** allows users to efficiently manage offices
 
 ## Prerequisites
 Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Node.js](https://nodejs.org/) (v18 or higher)
 - [.NET SDK](https://dotnet.microsoft.com/) (v8 or higher)
 - [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
