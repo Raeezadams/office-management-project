@@ -93,7 +93,7 @@ Here are some key API endpoints for testing:
 ## Deployment
 
 This application is hosted on a free Amazon EC2 instance and served via IIS.
-You can access the application by clicking [View Here](http://13.60.171.183:8080/).
+You can access the application by clicking [View Here](http://13.51.70.13:8080/).
 
 **Environment Details:**
 - **Platform:** Free Amazon EC2 instance
